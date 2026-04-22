@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Partner – PCS World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .partner-detail-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;
+    }
+    .partner-detail-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .partner-detail-card:hover { transform: translateY(-4px); border-color: rgba(0,198,255,0.28); }
+    .partner-logo {
+      font-size: 2.5rem; margin-bottom: 1rem;
+    }
+    .partner-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .partner-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <span>📞 <a href="tel:+61863635674">Call Us: +61 8 6363 5674</a></span>
+    <span>✉️ <a href="mailto:enquiry@pcsworld.com.au">enquiry@pcsworld.com.au</a></span>
+  </div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-logo">PCS World</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="service.html">Service</a></li>
+      <li><a href="partner.html" class="active">Our Partner</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <div class="nav-hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="page-content">
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+      <h1>Our <span>Partners</span></h1>
+      <div class="breadcrumb"><a href="index.html">Home</a> / Our Partner</div>
+    </div>
+
+    <!-- Partners -->
+    <section style="background:var(--bg);">
+      <div class="text-center">
+        <div class="section-tag">Technology Partners</div>
+        <h2>Working With <span>Industry Leaders</span></h2>
+        <p class="section-sub">PCS World partners with the world's leading technology companies to bring you the best solutions available — ensuring your business benefits from proven, enterprise-grade products.</p>
+      </div>
+
+      <div class="partner-detail-grid">
+
+        <div class="partner-detail-card">
+          <div class="partner-logo">🌐</div>
+          <div class="partner-name">Cisco</div>
+          <p class="partner-desc">Cisco is the global leader in networking and cybersecurity. We leverage Cisco's industry-leading hardware and software to build secure, high-performance network infrastructures for our clients.</p>
+        </div>
+
+        <div class="partner-detail-card">
+          <div class="partner-logo">📧</div>
+          <div class="partner-name">Microsoft Exchange Server</div>
+          <p class="partner-desc">Microsoft Exchange Server is the world's leading enterprise email and collaboration platform. Our certified engineers provide expert setup, migration, and ongoing support for Exchange environments.</p>
+        </div>
+
+        <div class="partner-detail-card">
+          <div class="partner-logo">💻</div>
+          <div class="partner-name">Dell</div>
+          <p class="partner-desc">Dell provides world-class servers, workstations, and storage solutions. As a Dell partner, PCS World helps businesses select, deploy, and maintain the right hardware infrastructure for their needs.</p>
+        </div>
+
+        <div class="partner-detail-card">
+          <div class="partner-logo">🗄️</div>
+          <div class="partner-name">Hitachi</div>
+          <p class="partner-desc">Hitachi Data Systems delivers enterprise storage and data management solutions. We utilise Hitachi's technology to ensure our clients have reliable, scalable, and high-performance data infrastructure.</p>
+        </div>
+
+        <div class="partner-detail-card">
+          <div class="partner-logo">🖥️</div>
+          <div class="partner-name">Citrix</div>
+          <p class="partner-desc">Citrix specialises in virtualisation, networking, and cloud computing solutions. PCS World leverages Citrix technologies to deliver flexible and secure virtual desktop and application environments for our clients.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background:var(--bg2);padding:60px 6%;">
+      <div class="cta-banner">
+        <div class="section-tag">Get in Touch</div>
+        <h2>Interested in Our <span>Solutions?</span></h2>
+        <p>Our partnerships with these technology leaders mean we can provide you with the very best tools and platforms for your business. Contact us to find out more.</p>
+        <a href="contact.html" class="btn btn-primary">Contact Us Today →</a>
+      </div>
+    </section>
+
+  </div><!-- /page-content -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">PCS World</div>
+        <p>Dedicated to providing the highest level of service and support to our clients across Australia.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="service.html">Service</a></li>
+          <li><a href="partner.html">Our Partner</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact &amp; Support</h4>
+        <ul>
+          <li><a href="tel:+61863635674">+61 8 6363 5674</a></li>
+          <li><a href="mailto:enquiry@pcsworld.com.au">enquiry@pcsworld.com.au</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Address</h4>
+        <ul>
+          <li><a href="contact.html">20 Canna Drive,<br>Canning Vale<br>Perth WA 6155</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2015 PCS World. All Rights Reserved.</span>
+      <span>Perth, Western Australia</span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
+  </script>
+</body>
+</html>

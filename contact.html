@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – PCS World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <span>📞 <a href="tel:+61863635674">Call Us: +61 8 6363 5674</a></span>
+    <span>✉️ <a href="mailto:enquiry@pcsworld.com.au">enquiry@pcsworld.com.au</a></span>
+  </div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-logo">PCS World</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="service.html">Service</a></li>
+      <li><a href="partner.html">Our Partner</a></li>
+      <li><a href="contact.html" class="nav-cta active">Contact Us</a></li>
+    </ul>
+    <div class="nav-hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="page-content">
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+      <h1>Contact <span>Us</span></h1>
+      <div class="breadcrumb"><a href="index.html">Home</a> / Contact Us</div>
+    </div>
+
+    <!-- Contact Section -->
+    <section style="background:var(--bg);">
+      <div class="contact-grid">
+
+        <!-- Left: Contact Info -->
+        <div>
+          <div class="section-tag">Get In Touch</div>
+          <h2>We'd Love to <span>Hear From You</span></h2>
+          <p style="font-size:0.95rem;color:var(--muted);line-height:1.75;margin-bottom:1.5rem;">Whether you have a question about our services, need a quote, or want to discuss your IT needs — our team is here to help. Fill in the form and we'll be in touch as soon as possible.</p>
+
+          <div class="contact-details">
+            <div class="contact-detail">
+              <div class="contact-icon">📞</div>
+              <div>
+                <strong>Phone</strong>
+                <a href="tel:+61863635674">+61 8 6363 5674</a>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-icon">✉️</div>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:enquiry@pcsworld.com.au">enquiry@pcsworld.com.au</a>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-icon">📍</div>
+              <div>
+                <strong>Address</strong>
+                20 Canna Drive, Canning Vale<br>Perth WA 6155
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Form (Method C — Custom HTML + direct API) -->
+        <div class="form-wrap">
+          <div class="form-title">Send Us a Message</div>
+
+          <div id="formSuccess" class="form-success">
+            <div class="form-success-icon">✅</div>
+            <h3>Message Received!</h3>
+            <p>Thanks for reaching out. We'll get back to you as soon as possible.</p>
+          </div>
+
+          <form id="ch-form" novalidate>
+            <!-- Honeypot — do not remove -->
+            <input type="hidden" name="_hp_website" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <div class="form-group">
+              <label for="first_name">Name <span class="req">*</span></label>
+              <input type="text" id="first_name" name="first_name" required placeholder="Your name" />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone <span class="req">*</span></label>
+              <input type="tel" id="phone" name="phone" required placeholder="e.g. 08 6363 5674" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="you@company.com.au" />
+            </div>
+
+            <div class="form-group">
+              <label>Select Your Preferred Service Type</label>
+              <div class="service-checks">
+                <label class="check-label">
+                  <input type="checkbox" name="select_your_preferred_service_type" value="Hosting Service" />
+                  ☁️ Hosting Service
+                </label>
+                <label class="check-label">
+                  <input type="checkbox" name="select_your_preferred_service_type" value="End Point Security" />
+                  🔒 End Point Security
+                </label>
+                <label class="check-label">
+                  <input type="checkbox" name="select_your_preferred_service_type" value="Desktop Support" />
+                  🖥️ Desktop Support
+                </label>
+                <label class="check-label">
+                  <input type="checkbox" name="select_your_preferred_service_type" value="Service Management Service" />
+                  ⚙️ Service Management
+                </label>
+                <label class="check-label">
+                  <input type="checkbox" name="select_your_preferred_service_type" value="Microsoft Exchange Support" />
+                  📧 Exchange Support
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="messages">Message</label>
+              <textarea id="messages" name="messages" placeholder="Tell us about your IT needs…"></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit" id="submitBtn">Send Message →</button>
+            <div class="form-error-msg" id="formError"></div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </div><!-- /page-content -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">PCS World</div>
+        <p>Dedicated to providing the highest level of service and support to our clients across Australia.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="service.html">Service</a></li>
+          <li><a href="partner.html">Our Partner</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact &amp; Support</h4>
+        <ul>
+          <li><a href="tel:+61863635674">+61 8 6363 5674</a></li>
+          <li><a href="mailto:enquiry@pcsworld.com.au">enquiry@pcsworld.com.au</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Address</h4>
+        <ul>
+          <li><a href="contact.html">20 Canna Drive,<br>Canning Vale<br>Perth WA 6155</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2015 PCS World. All Rights Reserved.</span>
+      <span>Perth, Western Australia</span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
+
+    /* ── Form submission ── */
+    document.getElementById('ch-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const btn  = document.getElementById('submitBtn');
+      const errEl = document.getElementById('formError');
+      errEl.textContent = '';
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      try {
+        const checkedServices = [...form.querySelectorAll('input[name="select_your_preferred_service_type"]:checked')]
+          .map(cb => cb.value).join(', ');
+
+        const data = {
+          first_name: form.first_name.value.trim(),
+          phone:      form.phone.value.trim(),
+          email:      form.email.value.trim(),
+          select_your_preferred_service_type: checkedServices,
+          messages:   form.messages.value.trim(),
+          _hp_website: form._hp_website.value,
+        };
+
+        const res = await fetch('https://forms.conversionhive.au/submit/cli_eslg4u9j', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        const json = await res.json();
+
+        if (json.ok) {
+          if (json.redirect_url) { window.location.href = json.redirect_url; return; }
+          form.style.display = 'none';
+          const successEl = document.getElementById('formSuccess');
+          successEl.style.display = 'flex';
+        } else {
+          errEl.textContent = json.error || 'Submission failed. Please try again.';
+          btn.disabled = false;
+          btn.textContent = 'Send Message →';
+        }
+      } catch {
+        errEl.textContent = 'Network error — please check your connection and try again.';
+        btn.disabled = false;
+        btn.textContent = 'Send Message →';
+      }
+    });
+  </script>
+</body>
+</html>
