@@ -72,19 +72,13 @@
           </div>
         </div>
 
-        <!-- Right: Form (Method C — Custom HTML + direct API) -->
+        <!-- Right: Form (direct POST to Conversion Hive) -->
         <div class="form-wrap">
           <div class="form-title">Send Us a Message</div>
 
-          <div id="formSuccess" class="form-success">
-            <div class="form-success-icon">✅</div>
-            <h3>Message Received!</h3>
-            <p>Thanks for reaching out. We'll get back to you as soon as possible.</p>
-          </div>
-
-          <form id="ch-form" novalidate>
+          <form action="https://forms.conversionhive.au/submit/cli_eslg4u9j" method="POST">
             <!-- Honeypot — do not remove -->
-            <input type="hidden" name="_hp_website" style="display:none" tabindex="-1" autocomplete="off" />
+            <input type="text" name="_hp_website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true" />
 
             <div class="form-group">
               <label for="first_name">Name <span class="req">*</span></label>
@@ -132,8 +126,7 @@
               <textarea id="messages" name="messages" placeholder="Tell us about your IT needs…"></textarea>
             </div>
 
-            <button type="submit" class="btn-submit" id="submitBtn">Send Message →</button>
-            <div class="form-error-msg" id="formError"></div>
+            <button type="submit" class="btn-submit">Send Message →</button>
           </form>
         </div>
 
@@ -182,54 +175,6 @@
   <script>
     function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
     document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
-
-    /* ── Form submission ── */
-    document.getElementById('ch-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const form = e.target;
-      const btn  = document.getElementById('submitBtn');
-      const errEl = document.getElementById('formError');
-      errEl.textContent = '';
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
-
-      try {
-        const checkedServices = [...form.querySelectorAll('input[name="select_your_preferred_service_type"]:checked')]
-          .map(cb => cb.value).join(', ');
-
-        const data = {
-          first_name: form.first_name.value.trim(),
-          phone:      form.phone.value.trim(),
-          email:      form.email.value.trim(),
-          select_your_preferred_service_type: checkedServices,
-          messages:   form.messages.value.trim(),
-          _hp_website: form._hp_website.value,
-        };
-
-        const res = await fetch('https://forms.conversionhive.au/submit/cli_eslg4u9j', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
-
-        const json = await res.json();
-
-        if (json.ok) {
-          if (json.redirect_url) { window.location.href = json.redirect_url; return; }
-          form.style.display = 'none';
-          const successEl = document.getElementById('formSuccess');
-          successEl.style.display = 'flex';
-        } else {
-          errEl.textContent = json.error || 'Submission failed. Please try again.';
-          btn.disabled = false;
-          btn.textContent = 'Send Message →';
-        }
-      } catch {
-        errEl.textContent = 'Network error — please check your connection and try again.';
-        btn.disabled = false;
-        btn.textContent = 'Send Message →';
-      }
-    });
   </script>
 </body>
 </html>
