@@ -72,61 +72,49 @@
           </div>
         </div>
 
-        <!-- Right: Form (direct POST to Conversion Hive) -->
+        <!-- Right: Form (Conversion Hive — JS fetch submission) -->
         <div class="form-wrap">
           <div class="form-title">Send Us a Message</div>
 
-          <form action="https://forms.conversionhive.au/submit/cli_eslg4u9j" method="POST">
-            <!-- Honeypot — do not remove -->
-            <input type="text" name="_hp_website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true" />
-
+          <form id="ch-form">
             <div class="form-group">
-              <label for="first_name">Name <span class="req">*</span></label>
-              <input type="text" id="first_name" name="first_name" required placeholder="Your name" />
+              <label for="f-first_name">Name <span class="req">*</span></label>
+              <input type="text" id="f-first_name" name="first_name" required placeholder="Your name" />
             </div>
 
             <div class="form-group">
-              <label for="phone">Phone <span class="req">*</span></label>
-              <input type="tel" id="phone" name="phone" required placeholder="e.g. 08 6363 5674" />
+              <label for="f-phone">Phone <span class="req">*</span></label>
+              <input type="tel" id="f-phone" name="phone" required placeholder="e.g. 08 6363 5674" />
             </div>
 
             <div class="form-group">
-              <label for="email">Email <span class="req">*</span></label>
-              <input type="email" id="email" name="email" required placeholder="you@company.com.au" />
+              <label for="f-email">Email <span class="req">*</span></label>
+              <input type="email" id="f-email" name="email" required placeholder="you@company.com.au" />
             </div>
 
             <div class="form-group">
-              <label>Select Your Preferred Service Type</label>
+              <label>Select your preferred service type</label>
               <div class="service-checks">
                 <label class="check-label">
-                  <input type="checkbox" name="select_your_preferred_service_type" value="Hosting Service" />
-                  ☁️ Hosting Service
+                  <input type="checkbox" name="select_your_preferred_service_type" value="Setup new website" />
+                  🌐 Setup new website
                 </label>
                 <label class="check-label">
-                  <input type="checkbox" name="select_your_preferred_service_type" value="End Point Security" />
-                  🔒 End Point Security
-                </label>
-                <label class="check-label">
-                  <input type="checkbox" name="select_your_preferred_service_type" value="Desktop Support" />
-                  🖥️ Desktop Support
-                </label>
-                <label class="check-label">
-                  <input type="checkbox" name="select_your_preferred_service_type" value="Service Management Service" />
-                  ⚙️ Service Management
-                </label>
-                <label class="check-label">
-                  <input type="checkbox" name="select_your_preferred_service_type" value="Microsoft Exchange Support" />
-                  📧 Exchange Support
+                  <input type="checkbox" name="select_your_preferred_service_type" value="Digital Ads Advertising" />
+                  📢 Digital Ads Advertising
                 </label>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="messages">Message</label>
-              <textarea id="messages" name="messages" placeholder="Tell us about your IT needs…"></textarea>
+              <label for="f-messages">Messages</label>
+              <textarea id="f-messages" name="messages" rows="4" placeholder="Tell us about your needs…"></textarea>
             </div>
 
-            <button type="submit" class="btn-submit">Send Message →</button>
+            <!-- Honeypot — leave hidden, catches bots -->
+            <input type="hidden" name="_hp_website" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <button type="submit" class="btn-submit">Submit</button>
           </form>
         </div>
 
@@ -175,6 +163,42 @@
   <script>
     function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
     document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
+
+    /* ── Form submission (Conversion Hive) ── */
+    document.getElementById('ch-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var btn = e.target.querySelector('button[type=submit]');
+      btn.disabled = true;
+      var origLabel = btn.textContent;
+      btn.textContent = 'Sending…';
+      try {
+        var fd = new FormData(e.target);
+        var data = Object.fromEntries(fd);
+        // Collect multi-select checkboxes as comma-separated string
+        var checked = [...e.target.querySelectorAll('input[name="select_your_preferred_service_type"]:checked')]
+          .map(cb => cb.value).join(', ');
+        data.select_your_preferred_service_type = checked;
+
+        var res = await fetch('https://forms.conversionhive.au/submit/cli_eslg4u9j', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        var json = await res.json();
+        if (json.ok) {
+          if (json.redirect_url) { window.location.href = json.redirect_url; return; }
+          e.target.outerHTML = '<p style="text-align:center;padding:2rem 0;color:var(--text);">✅ Thanks for your submission. We\'ll be in touch.</p>';
+        } else {
+          alert(json.error || 'Submission failed');
+          btn.disabled = false;
+          btn.textContent = origLabel;
+        }
+      } catch (err) {
+        alert('Network error — please try again.');
+        btn.disabled = false;
+        btn.textContent = origLabel;
+      }
+    });
   </script>
 </body>
 </html>
