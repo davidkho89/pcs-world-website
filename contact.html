@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -114,6 +115,9 @@
             <!-- Honeypot — leave hidden, catches bots -->
             <input type="hidden" name="_hp_website" style="display:none" tabindex="-1" autocomplete="off" />
 
+            <!-- Cloudflare Turnstile (bot check) -->
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAADAzxmOxSCFYVD7i" style="margin:1rem 0;"></div>
+
             <button type="submit" class="btn-submit">Submit</button>
           </form>
         </div>
@@ -169,16 +173,8 @@
       e.preventDefault();
       var btn = e.target.querySelector('button[type=submit]');
       btn.disabled = true;
-      var origLabel = btn.textContent;
-      btn.textContent = 'Sending…';
       try {
-        var fd = new FormData(e.target);
-        var data = Object.fromEntries(fd);
-        // Collect multi-select checkboxes as comma-separated string
-        var checked = [...e.target.querySelectorAll('input[name="select_your_preferred_service_type"]:checked')]
-          .map(cb => cb.value).join(', ');
-        data.select_your_preferred_service_type = checked;
-
+        var data = Object.fromEntries(new FormData(e.target));
         var res = await fetch('https://forms.conversionhive.au/submit/cli_eslg4u9j', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -191,12 +187,10 @@
         } else {
           alert(json.error || 'Submission failed');
           btn.disabled = false;
-          btn.textContent = origLabel;
         }
       } catch (err) {
-        alert('Network error — please try again.');
+        alert('Network error');
         btn.disabled = false;
-        btn.textContent = origLabel;
       }
     });
   </script>
