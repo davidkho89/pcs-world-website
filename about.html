@@ -3,11 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us — PCS World</title>
-  <meta name="description" content="Meet PCS World — your local Perth IT support team. Friendly, reliable techs who get IT sorted on-site or remote." />
+
+  <title>About PCS World — Your Trusted Perth IT Partner</title>
+  <meta name="description" content="Meet PCS World — an independent Perth-based IT support team serving healthcare, government, education, finance, and SMEs across the Perth metro area." />
+  <link rel="canonical" href="https://www.pcsworld.com.au/about.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="PCS World" />
+  <meta property="og:title" content="About PCS World — Your Trusted Perth IT Partner" />
+  <meta property="og:description" content="Independent Perth-based IT support serving healthcare, government, education, finance, and SMEs across Perth metro." />
+  <meta property="og:url" content="https://www.pcsworld.com.au/about.html" />
+  <meta property="og:image" content="https://www.pcsworld.com.au/assets/man-in-headset-at-computer.png" />
+  <meta property="og:locale" content="en_AU" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About PCS World — Your Trusted Perth IT Partner" />
+  <meta name="twitter:description" content="Independent Perth-based IT support serving healthcare, government, education, finance, and SMEs across Perth metro." />
+  <meta name="twitter:image" content="https://www.pcsworld.com.au/assets/man-in-headset-at-computer.png" />
+
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Structured data: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pcsworld.com.au/" },
+      { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://www.pcsworld.com.au/about.html" }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -39,8 +70,8 @@
   </nav>
 
   <!-- Page Hero -->
-  <div class="page-hero">
-    <div class="container">
+  <div class="page-hero page-hero--with-image">
+    <div class="page-hero__copy">
       <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span>About Us</div>
       <h1>About <span>Us</span></h1>
       <div class="dotbar" aria-hidden="true">
@@ -51,6 +82,7 @@
         <i class="pill"></i>
       </div>
     </div>
+    <div class="page-hero__media" style="background-image: url('assets/smiling-man-with-laptop.png');" aria-hidden="true"></div>
   </div>
 
   <!-- Main Content -->

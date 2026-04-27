@@ -284,9 +284,31 @@ p { line-height: 1.7; color: var(--pcs-ink-2); }
 
 /* ── Page hero (inner pages) ──────────────────────────────── */
 .page-hero {
-  background: #fff;
+  background: #F9F9F9;
   padding: 56px 0 40px;
   border-bottom: 1px solid var(--pcs-line);
+}
+
+/* Page hero with full-bleed image on the right (use modifier .page-hero--with-image) */
+.page-hero--with-image {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0;
+  align-items: stretch;
+  background: #F9F9F9;
+}
+.page-hero--with-image .page-hero__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 56px 48px 56px max(24px, calc((100vw - var(--pcs-content-max)) / 2 + 24px));
+}
+.page-hero--with-image .page-hero__media {
+  background-color: #F9F9F9;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 380px;
 }
 .breadcrumb {
   font-size: 13px;
@@ -355,11 +377,16 @@ p { line-height: 1.7; color: var(--pcs-ink-2); }
 
 /* ── Services grid (cards have NO border, NO shadow) ──────── */
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 40px 32px;
 }
-.card { background: transparent; padding: 0; }
+.services-grid .card {
+  flex: 0 1 calc((100% - 64px) / 3);
+  min-width: 240px;
+}
+.card { background: transparent; padding: 24px 0; }
 .card-icon {
   width: 56px; height: 56px;
   background: var(--pcs-red-soft);
@@ -462,13 +489,15 @@ p { line-height: 1.7; color: var(--pcs-ink-2); }
 
 /* ── Partners ─────────────────────────────────────────────── */
 .partners-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
-  align-items: stretch;
   margin-top: 40px;
 }
 .partner-card {
+  flex: 0 1 calc((100% - 64px) / 5);
+  min-width: 160px;
   border: 1px solid var(--pcs-line);
   background: #fff;
   padding: 28px 20px;
@@ -480,11 +509,14 @@ p { line-height: 1.7; color: var(--pcs-ink-2); }
 }
 .partner-card:hover { border-color: var(--pcs-red); color: var(--pcs-red); }
 .partner-detail-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 32px;
 }
 .partner-detail-card {
+  flex: 0 1 calc((100% - 64px) / 3);
+  min-width: 280px;
   background: #fff;
   border-top: 4px solid var(--pcs-red);
   padding: 32px;
@@ -710,6 +742,11 @@ footer {
   .hero-image { min-height: 280px; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
 
+  /* Page hero with image: stack on tablet/mobile */
+  .page-hero--with-image { grid-template-columns: 1fr; }
+  .page-hero--with-image .page-hero__copy { padding: 40px 20px 32px; }
+  .page-hero--with-image .page-hero__media { min-height: 220px; }
+
   /* Testimonials: always horizontal scroll on tablet & mobile */
   .testimonials-grid,
   .testimonials-grid--scroll {
@@ -805,6 +842,15 @@ footer {
   section { padding: 56px 0; }
   .container { padding: 0 20px; }
   .footer-inner { grid-template-columns: 1fr; }
+
+  /* Service cards: fill width on mobile (no side whitespace) */
+  .services-grid .card { flex: 1 1 100%; min-width: 0; }
+
+  /* Partner detail cards: fill width on mobile */
+  .partner-detail-card { flex: 1 1 100%; min-width: 0; }
+
+  /* Partner showcase logos: 2 per row on mobile, last one centered */
+  .partner-card { flex: 1 1 calc((100% - 16px) / 2); min-width: 0; max-width: 220px; }
   .footer-bottom { flex-direction: column; text-align: center; }
   .service-checks { grid-template-columns: 1fr; }
   .red-banner { padding: 48px 20px; }
