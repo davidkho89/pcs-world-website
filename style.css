@@ -82,7 +82,7 @@ nav {
   gap: 28px;
 }
 nav.is-scrolled {
-  height: 64px;
+  height: 76px;
   box-shadow: 0 2px 8px rgba(15, 16, 18, 0.06);
 }
 .nav-logo {
@@ -97,10 +97,10 @@ nav.is-scrolled {
   display: block;
   transition: height 220ms var(--pcs-ease);
 }
-nav.is-scrolled .nav-logo img { height: 34px; }
+nav.is-scrolled .nav-logo img { height: 40px; }
 .nav-links {
   display: flex;
-  gap: 26px;
+  gap: 48px;
   align-items: center;
   list-style: none;
 }
