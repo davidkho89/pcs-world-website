@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Sarah J.",
+    "title": "Practice Manager, Westside Medical",
+    "rating": 5,
+    "quote": "PCS World sorted our practice management system after a critical outage — their tech was on-site within the hour. Friendly, responsive, and explained everything in plain English. Could not ask for more."
+  },
+  {
+    "name": "David L.",
+    "title": "Operations Director, Canning Vale Logistics",
+    "rating": 5,
+    "quote": "We've used PCS World for our endpoint security and Microsoft Exchange support for over five years. They feel like part of our team — reliable, easy to deal with, and they actually pick up the phone."
+  },
+  {
+    "name": "Michael P.",
+    "title": "IT Coordinator, Perth Metro Council",
+    "rating": 5,
+    "quote": "They migrated our department's email infrastructure to Exchange with zero downtime over a long weekend. Professional from start to finish — exactly what you want from an IT partner."
+  }
+]

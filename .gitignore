@@ -1,0 +1,6 @@
+# Design system handoff bundle — local reference only, do not publish
+design-system/
+
+# macOS
+.DS_Store
+**/.DS_Store

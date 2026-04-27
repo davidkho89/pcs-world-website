@@ -3,60 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us – PCS World</title>
+  <title>About Us — PCS World</title>
+  <meta name="description" content="Meet PCS World — your local Perth IT support team. Friendly, reliable techs who get IT sorted on-site or remote." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- Topbar -->
   <div class="topbar">
-    <span>📞 <a href="tel:+61863635674">Call Us: +61 8 6363 5674</a></span>
-    <span>✉️ <a href="mailto:enquiry@pcsworld.com.au">enquiry@pcsworld.com.au</a></span>
+    <a href="tel:+61863635674">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call us: +61 8 6363 5674
+    </a>
+    <a href="mailto:enquiry@pcsworld.com.au">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+      enquiry@pcsworld.com.au
+    </a>
   </div>
 
   <!-- Nav -->
-  <nav>
-    <div class="nav-logo">PCS World</div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html" class="active">About Us</a></li>
-      <li><a href="service.html">Service</a></li>
-      <li><a href="partner.html">Our Partner</a></li>
-      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
-    </ul>
-    <div class="nav-hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+  <nav id="siteNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="PCS World"><img src="assets/logo.svg" alt="PCS World" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="partner.html">Our Partners</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <div class="nav-hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+    </div>
   </nav>
 
-  <div class="page-content">
-
-    <!-- Page Hero -->
-    <div class="page-hero">
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span>About Us</div>
       <h1>About <span>Us</span></h1>
-      <div class="breadcrumb"><a href="index.html">Home</a> / About Us</div>
+      <div class="dotbar" aria-hidden="true">
+        <i class="dot"></i>
+        <i class="ring"></i>
+        <i class="bar"></i>
+        <i class="bar"></i>
+        <i class="pill"></i>
+      </div>
     </div>
+  </div>
 
-    <!-- Main Content -->
-    <section style="background:var(--bg);">
+  <!-- Main Content -->
+  <section>
+    <div class="container">
       <div class="about-grid">
         <!-- Left: Welcome text -->
         <div>
-          <div class="section-tag">Welcome To PCS World</div>
-          <h2>Connecting <span>People &amp; Technology</span></h2>
-
-          <p style="font-size:0.95rem;color:var(--muted);line-height:1.75;margin-bottom:1rem;">PCS World brings our professional IT gurus together with different aspects of expertise. Through PCS World we aim to develop the best IT company with a vision of connecting people and technology together.</p>
-
-          <p style="font-size:0.95rem;color:var(--muted);line-height:1.75;margin-bottom:1.5rem;">PCS World is dedicated to providing the highest level of service and support to our clients and ensuring that all of our customers are satisfied with our IT specialists.</p>
-
-          <p style="font-size:0.9rem;color:var(--muted);font-weight:600;margin-bottom:0.8rem;">Our customers across Australia include:</p>
+          <div class="section-tag">Welcome to PCS World</div>
+          <h2>Connecting <span>people &amp; technology</span></h2>
+          <p style="margin-bottom:1rem;">PCS World brings our IT specialists together with different aspects of expertise. Through PCS World we aim to develop the best IT company with a vision of connecting people and technology.</p>
+          <p style="margin-bottom:1.5rem;">We're dedicated to providing the highest level of service and support to our clients, and we make sure every customer is looked after by an IT specialist who knows their stuff.</p>
+          <p style="font-weight:700;color:var(--pcs-ink);margin-bottom:0.5rem;">Our customers include:</p>
           <ul class="customers-list">
             <li>Large corporate organisations</li>
-            <li>Leading Healthcare companies</li>
-            <li>State and Local government departments</li>
-            <li>Higher Education Institutions such as Universities, TAFE etc.</li>
-            <li>Financial Institutions</li>
-            <li>Small to Medium enterprises</li>
+            <li>Leading healthcare companies</li>
+            <li>State and local government departments</li>
+            <li>Higher education institutions — universities, TAFE, etc.</li>
+            <li>Financial institutions</li>
+            <li>Small to medium enterprises</li>
           </ul>
         </div>
 
@@ -65,91 +79,91 @@
           <div class="accordion">
 
             <div class="accordion-item open" id="acc1">
-              <div class="accordion-header" onclick="toggleAcc('acc1')">
-                Our Company Mission
+              <button type="button" class="accordion-header" onclick="toggleAcc('acc1')">
+                Our company mission
                 <span class="accordion-arrow">▼</span>
-              </div>
+              </button>
               <div class="accordion-body">
-                <p>PCS World brings our professional IT gurus together with different aspects of expertise. Through PCS World we aim to develop the best IT company with a vision of connecting people and technology together.</p>
+                <p>PCS World brings our professional IT specialists together with different aspects of expertise. Through PCS World we aim to develop the best IT company with a vision of connecting people and technology.</p>
               </div>
             </div>
 
             <div class="accordion-item" id="acc2">
-              <div class="accordion-header" onclick="toggleAcc('acc2')">
-                The PCS World Philosophy
+              <button type="button" class="accordion-header" onclick="toggleAcc('acc2')">
+                The PCS World philosophy
                 <span class="accordion-arrow">▼</span>
-              </div>
+              </button>
               <div class="accordion-body">
-                <p>Leading all the technologies as your tools that bring you success and maximise your return on investment. We believe technology should work for you — not the other way around.</p>
+                <p>We treat technology as the tool that brings you success and maximises your return on investment. Tech should work for you — not the other way around.</p>
               </div>
             </div>
 
             <div class="accordion-item" id="acc3">
-              <div class="accordion-header" onclick="toggleAcc('acc3')">
-                Why Us
+              <button type="button" class="accordion-header" onclick="toggleAcc('acc3')">
+                Why us
                 <span class="accordion-arrow">▼</span>
-              </div>
+              </button>
               <div class="accordion-body">
-                <p>Why Choose PCS World? PCS World's consultants provide security solutions that comply with your company's systems. We make sure all your endpoint devices can log onto the corporate network with full protection — giving your company a virus and threat-free environment to develop business at an even bigger scale.</p>
+                <p>Our consultants build security solutions that fit the way your company already works. We make sure every endpoint device on your network has full protection — giving your team a virus and threat-free environment to grow the business.</p>
               </div>
             </div>
 
             <div class="accordion-item" id="acc4">
-              <div class="accordion-header" onclick="toggleAcc('acc4')">
-                Contact Us
+              <button type="button" class="accordion-header" onclick="toggleAcc('acc4')">
+                Contact us
                 <span class="accordion-arrow">▼</span>
-              </div>
+              </button>
               <div class="accordion-body">
-                <p>📞 Phone: +61 8 6363 5674<br>
-                   ✉️ Email: enquiry@pcsworld.com.au<br>
-                   📍 Address: 20 Canna Drive, Canning Vale Perth WA 6155</p>
-                <br>
-                <a href="contact.html" class="btn btn-primary" style="display:inline-flex;">Get in Touch →</a>
+                <p><strong>Phone:</strong> +61 8 6363 5674<br>
+                   <strong>Email:</strong> enquiry@pcsworld.com.au<br>
+                   <strong>Address:</strong> 20 Canna Drive, Canning Vale Perth WA 6155</p>
+                <p style="margin-top:14px;">
+                  <a href="contact.html" class="btn btn-primary">Get in touch <span class="arrow">→</span></a>
+                </p>
               </div>
             </div>
 
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Partners on About page -->
-    <section style="background:var(--bg2);">
-      <div class="text-center">
-        <div class="section-tag">Our Partners</div>
-        <h2>Trusted <span>Technology Partners</span></h2>
-        <p class="section-sub">We work with industry-leading technology companies to deliver the best outcomes for our clients.</p>
-      </div>
+  <!-- Partners -->
+  <section class="bg-warm">
+    <div class="container text-center">
+      <div class="section-tag">Our partners</div>
+      <h2>Trusted <span>technology partners</span></h2>
+      <p class="section-sub">We work with industry-leading technology companies to deliver the best outcomes for our clients.</p>
       <div class="partners-grid">
-        <div class="partner-card">🌐 Cisco</div>
-        <div class="partner-card">📧 Microsoft Exchange</div>
-        <div class="partner-card">💻 Dell</div>
-        <div class="partner-card">🗄️ Hitachi</div>
-        <div class="partner-card">🖥️ Citrix</div>
+        <div class="partner-card">Cisco</div>
+        <div class="partner-card">Microsoft Exchange</div>
+        <div class="partner-card">Dell</div>
+        <div class="partner-card">Hitachi</div>
+        <div class="partner-card">Citrix</div>
       </div>
-    </section>
-
-  </div><!-- /page-content -->
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="nav-logo">PCS World</div>
-        <p>Dedicated to providing the highest level of service and support to our clients across Australia.</p>
+        <a href="index.html" class="nav-logo" aria-label="PCS World"><img src="assets/logo.svg" alt="PCS World" /></a>
+        <p>Dedicated to providing the highest level of service and support to Perth homes and businesses.</p>
       </div>
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="service.html">Service</a></li>
-          <li><a href="partner.html">Our Partner</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="partner.html">Our Partners</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Contact &amp; Support</h4>
+        <h4>Contact &amp; support</h4>
         <ul>
           <li><a href="tel:+61863635674">+61 8 6363 5674</a></li>
           <li><a href="mailto:enquiry@pcsworld.com.au">enquiry@pcsworld.com.au</a></li>
@@ -163,14 +177,30 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2015 PCS World. All Rights Reserved.</span>
+      <span>© 2015 PCS World. All rights reserved.</span>
       <span>Perth, Western Australia</span>
     </div>
   </footer>
 
   <script>
-    function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
-    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
+    function toggleNav() {
+      const isOpen = document.getElementById('navLinks').classList.toggle('open');
+      document.body.classList.toggle('menu-open', isOpen);
+    }
+    function closeNav() {
+      document.getElementById('navLinks').classList.remove('open');
+      document.body.classList.remove('menu-open');
+    }
+    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', closeNav));
+
+    /* Shrink nav on scroll */
+    const _siteNav = document.getElementById('siteNav');
+    function syncNavScroll() {
+      if (window.scrollY > 16) _siteNav.classList.add('is-scrolled');
+      else _siteNav.classList.remove('is-scrolled');
+    }
+    window.addEventListener('scroll', syncNavScroll, { passive: true });
+    syncNavScroll();
 
     function toggleAcc(id) {
       const item = document.getElementById(id);

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" role="img" aria-label="01 binary backdrop">
+  <rect width="800" height="320" fill="#E5E5E7"></rect>
+  <g fill="none" stroke="#E11932" stroke-width="14">
+    <circle cx="80" cy="80" r="34"></circle>
+    <circle cx="200" cy="80" r="34"></circle>
+    <circle cx="540" cy="80" r="34"></circle>
+    <circle cx="660" cy="80" r="34"></circle>
+    <circle cx="140" cy="200" r="34"></circle>
+    <circle cx="380" cy="200" r="34"></circle>
+    <circle cx="720" cy="200" r="34"></circle>
+  </g>
+  <g fill="#E11932">
+    <rect x="306" y="46" width="22" height="68" rx="11"></rect>
+    <rect x="376" y="46" width="22" height="68" rx="11"></rect>
+    <rect x="450" y="46" width="22" height="68" rx="11"></rect>
+    <rect x="56" y="166" width="22" height="68" rx="11"></rect>
+    <rect x="240" y="166" width="22" height="68" rx="11"></rect>
+    <rect x="610" y="166" width="22" height="68" rx="11"></rect>
+  </g>
+  <g fill="none" stroke="#E11932" stroke-width="14">
+    <rect x="58" y="266" width="80" height="36" rx="18"></rect>
+    <rect x="460" y="266" width="80" height="36" rx="18"></rect>
+  </g>
+</svg>
